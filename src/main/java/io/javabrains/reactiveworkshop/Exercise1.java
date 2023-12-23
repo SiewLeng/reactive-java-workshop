@@ -43,7 +43,7 @@ public class Exercise1 {
         // TODO: Write code here
         System.out.println("\nPrint first names in userStream for users that have IDs from number stream");
         StreamSources.userStream()
-        .filter(user -> StreamSources.intNumbersStream().filter(num ->user.getId() == num).findFirst().orElse(-1) > 0)
+        .filter(user -> StreamSources.intNumbersStream().anyMatch(x -> x == user.getId()))
         .forEach(user -> System.out.println(user.getFirstName()));
 
         System.out.println("\nPrint first names in userStream for users that have IDs from number stream");
