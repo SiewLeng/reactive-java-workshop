@@ -42,12 +42,13 @@ public class Exercise1 {
         // Print first names in userStream for users that have IDs from number stream
         // TODO: Write code here
         System.out.println("\nPrint first names in userStream for users that have IDs from number stream");
-        Stream<User> users2 = StreamSources.userStream();
-        users2
-        .filter(user -> {
-            Stream<Integer> nums5 = StreamSources.intNumbersStream();
-            return nums5.filter(num ->user.getId() == num).findFirst().orElse(-1) > 0;
-        })
+        StreamSources.userStream()
+        .filter(user -> StreamSources.intNumbersStream().filter(num ->user.getId() == num).findFirst().orElse(-1) > 0)
+        .forEach(user -> System.out.println(user.getFirstName()));
+
+        System.out.println("\nPrint first names in userStream for users that have IDs from number stream");
+        StreamSources.intNumbersStream()
+        .flatMap(num -> StreamSources.userStream().filter(user -> num == user.getId()))
         .forEach(user -> System.out.println(user.getFirstName()));
     }
 
