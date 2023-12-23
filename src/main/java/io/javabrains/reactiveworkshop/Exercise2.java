@@ -11,7 +11,7 @@ public class Exercise2 {
         // Print all numbers in the ReactiveSources.intNumbersFlux stream
         // TODO: Write code here
         System.out.println("Print all numbers in the ReactiveSources.intNumbersFlux stream");
-        ReactiveSources.intNumbersFlux().doOnNext(System.out::println).subscribe();
+        ReactiveSources.intNumbersFlux().subscribe(System.out::println);
 
         // Print all users in the ReactiveSources.userFlux stream
         // TODO: Write code here
