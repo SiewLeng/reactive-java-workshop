@@ -10,6 +10,7 @@ public class Exercise8 {
     // Print values from intNumbersFluxWithException and continue on errors
     // TODO: Write code here
     public void function1() {
+        System.out.println("Print values from intNumbersFluxWithException and continue on errors");
         ReactiveSources.intNumbersFluxWithException()
         .doOnError(err -> System.out.println("An error has happended"))
         .subscribe(
@@ -22,6 +23,7 @@ public class Exercise8 {
     // happen, replace with a fallback sequence of -1 and -2
     // TODO: Write code here
     public void function2() {
+        System.out.println("Print values from intNumbersFluxWithException and when errors happen, \n replace with a fallback sequence of -1 and -2");
         ReactiveSources.intNumbersFluxWithException()
         // .onErrorContinue((e, item) -> System.out.println(e.getMessage() + " " + item))
         .onErrorResume(err -> Flux.just(-1, -2))
