@@ -11,7 +11,7 @@ public class MySubscriber<T> extends BaseSubscriber<T> {
     }
 
     public void hookOnNext(T value) {
-        System.out.println(value.toString() + "receieved");
+        System.out.println(value.toString() + " receieved");
         request(1);
     }
 

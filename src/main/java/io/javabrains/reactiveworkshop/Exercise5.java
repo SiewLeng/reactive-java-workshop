@@ -16,16 +16,15 @@ public class Exercise5 {
             () -> System.out.println("Complete")
         );
     }
-
+    
+    // Subscribe to a flux using an implementation of BaseSubscriber
+    // TODO: Write code here
     public void function2() {
         ReactiveSources.userFlux()
         .subscribe(new MySubscriber<>());
     }
 
     public static void main(String[] args) throws IOException {
-
-        // Subscribe to a flux using an implementation of BaseSubscriber
-        // TODO: Write code here
 
         new Exercise5().function2();
 
