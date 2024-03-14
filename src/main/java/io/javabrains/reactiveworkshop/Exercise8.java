@@ -35,7 +35,7 @@ public class Exercise8 {
 
     public static void main(String[] args) throws IOException {
 
-        new Exercise8().function2();
+        new Exercise8().function1();
         System.out.println("Press a key to end");
         System.in.read();
     }
