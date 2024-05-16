@@ -2,6 +2,10 @@ package io.javabrains.reactiveworkshop;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 // import java.util.HashMap;
@@ -29,13 +33,22 @@ public class Miscellaneous {
     }
 
     public static void function2() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-        System.out.println("current date: " + LocalDateTime.now().format(dateTimeFormatter));
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        LocalDateTime dateTime = LocalDateTime.now();
+        ZonedDateTime zdt= dateTime.atZone(ZoneOffset.of("+08:00"));
+        System.out.println("\ncurrent date: " + zdt.format(dateTimeFormatter));
     }
-    
+
+    public static void function3() {
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_DATE_TIME.withZone(ZoneId.systemDefault());
+        System.out.println("\ncurrent date: " + dateTime.format(dateTimeFormatter));
+    }
+
+
 
     public static void main(String[] args) throws IOException {
-        function1();
+        // function1();
         function2();
     }
 }
