@@ -35,7 +35,9 @@ public class Miscellaneous {
     public static void function2() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
         LocalDateTime dateTime = LocalDateTime.now();
-        ZonedDateTime zdt= dateTime.atZone(ZoneOffset.of("+08:00"));
+        // ZonedDateTime zdt= dateTime.atZone(ZoneOffset.of("+08:00"));
+        ZoneId defaultZone = ZoneId.systemDefault();
+        ZonedDateTime zdt= dateTime.atZone(defaultZone);
         System.out.println("\ncurrent date: " + zdt.format(dateTimeFormatter));
     }
 
@@ -43,12 +45,14 @@ public class Miscellaneous {
         LocalDateTime dateTime = LocalDateTime.now();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_DATE_TIME.withZone(ZoneId.systemDefault());
         System.out.println("\ncurrent date: " + dateTime.format(dateTimeFormatter));
+        System.out.println("\ncurrent date with dateTimeFormatter: " + dateTime.format(dateTimeFormatter));
     }
 
 
 
     public static void main(String[] args) throws IOException {
         // function1();
-        function2();
+        // function2();
+        function3();
     }
 }
