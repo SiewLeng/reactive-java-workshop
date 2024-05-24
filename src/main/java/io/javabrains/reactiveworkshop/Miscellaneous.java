@@ -48,11 +48,21 @@ public class Miscellaneous {
         System.out.println("\ncurrent date with dateTimeFormatter: " + dateTime.format(dateTimeFormatter));
     }
 
+    public static void function4() {
+        ZoneId defaultZone = ZoneId.systemDefault();
+        LocalDateTime currentLocalDateTime = LocalDateTime.now();
+        OffsetDateTime currentOffsetDateTime = currentLocalDateTime.atZone(defaultZone).toOffsetDateTime();
+        System.out.println("current time using offsetDateTime: " + currentOffsetDateTime);
+    }
 
+    public static void function5() {
+        System.out.println("current time using local date time: " + LocalDateTime.now());
+    }
 
     public static void main(String[] args) throws IOException {
         // function1();
         // function2();
-        function3();
+        function4();
+        function5();
     }
 }
